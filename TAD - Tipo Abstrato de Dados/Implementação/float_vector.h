@@ -22,7 +22,7 @@ typedef struct float_vetor floatVector; //Aqui ele diz: "Existe uma estrutura ch
 //Agora, temos de colocar as definições das funções
 
     //Essas duas funções que virão, servem para criação e desalocação
-    floatVector = create(int capacity);
+    floatVector *create(int capacity);
     void destroy(floatVector **vec);
 
     //Funções já definidas pelo exercício

@@ -15,3 +15,28 @@
         * append(tad vector, float float val); //Adiciona o valor 'bal' no final do vetor. Lança um erro se estiver cheio.
         * set(tad vector, int index, float val); //Atribui o valor 'val' no indice 'index' do vetor de tipo 'tad'. Lança um erro se o índice for inválido
         * print (tad vector); //Imprime todos os elementos do vetor. */
+
+//Primeira coisa que devemos fazer é incluir o .h que contém as especificações
+#include "float_vector.h"
+
+struct float_vector
+{
+    int capacity; //Numero máximo de elementos do vetor
+    int size; //Quantidade de elementos armazenados
+    float *data; //Vetor de floats
+
+};
+
+    floatVector *create(int capacity)
+    {
+
+    }
+    void destroy(floatVector **vec);
+
+    int size(const floatVector *vec);
+    capacity(const floatVector *vec);
+    at(const floatVector *vec, int index);
+    get(const floatVector *vec, int index);
+    append(const floatVector *vec, float val);
+    set(const floatVector *vec, int index, float val);
+    print (const floatVector *vec);
