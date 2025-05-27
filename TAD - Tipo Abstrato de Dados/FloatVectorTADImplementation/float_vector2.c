@@ -17,26 +17,43 @@
         * print (tad vector); //Imprime todos os elementos do vetor. */
 
 //Primeira coisa que devemos fazer é incluir o .h que contém as especificações
-#include "float_vector.h"
+#include "float_vector2.h"
+#include <stdlib.h>
 
 struct float_vector
 {
     int capacity; //Numero máximo de elementos do vetor
     int size; //Quantidade de elementos armazenados
-    float *data; //Vetor de floats
+    float *data; //um ponteiro para um vetor de floats
 
 };
 
-    floatVector *create(int capacity)
-    {
+/*@brief cria(aloca) um vetor de floats com uma data capacidades;
+*
+*@param capacity Capacidade do vetor
+*@return floatcVector* um vetor de floats alocado/criado
+*/
+floatVector *create(int capacity)
+{
+    floatVector *vec = (floatVector*) calloc(1, sizeof(floatVector)); //Diferença entre malloc e calloc -> malloc: aloca memória mas não inicializa (o conteúdo pode ser "lixo de memória") calloc: Aloca memória e inicializa todos os seus bytes com o valor zero;
+    vec -> size = 0;
+    vec -> capacity = capacity;
+    vec -> data = (float*) calloc(capacity, sizeof(float));
 
-    }
-    void destroy(floatVector **vec);
+    return vec;
+}
 
-    int size(const floatVector *vec);
-    capacity(const floatVector *vec);
-    at(const floatVector *vec, int index);
-    get(const floatVector *vec, int index);
-    append(const floatVector *vec, float val);
-    set(const floatVector *vec, int index, float val);
-    print (const floatVector *vec);
+/*
+*
+*
+*
+*/
+void destroy(floatVector **vec_ref) //Perceba que, a assinatura do header não precisa exatamente ter os mesmos nomes dos parâmetros, o que importa mesmo é a assinatura dos tipos, mas, como boa pratica de programação, busca-se colocar os mesmos nomes
+{
+    floatVector *vec = *vec_ref;
+
+    free(vec -> data);
+    free(vec);
+    *vec_ref = NULL;
+
+}
