@@ -33,6 +33,6 @@ typedef struct float_vector floatVector; //Aqui ele diz: "Existe uma estrutura c
     capacity(const floatVector *vec);
     at(const floatVector *vec, int index);
     get(const floatVector *vec, int index);
-    append(const floatVector *vec, float val);
+    void append(floatVector *vec, float val);
     set(const floatVector *vec, int index, float val);
-    print (const floatVector *vec);
+    void print (const floatVector *vec);

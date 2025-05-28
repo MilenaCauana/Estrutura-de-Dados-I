@@ -19,6 +19,7 @@
 //Primeira coisa que devemos fazer é incluir o .h que contém as especificações
 #include "float_vector2.h"
 #include <stdlib.h>
+#include<stdio.h>
 
 struct float_vector
 {
@@ -44,9 +45,7 @@ floatVector *create(int capacity)
 }
 
 /*
-*
-*
-*
+*Destruindo a função, desalocando;
 */
 void destroy(floatVector **vec_ref) //Perceba que, a assinatura do header não precisa exatamente ter os mesmos nomes dos parâmetros, o que importa mesmo é a assinatura dos tipos, mas, como boa pratica de programação, busca-se colocar os mesmos nomes
 {
@@ -56,4 +55,38 @@ void destroy(floatVector **vec_ref) //Perceba que, a assinatura do header não pr
     free(vec);
     *vec_ref = NULL;
 
+}
+
+/*
+*Função para adicionar um elemento no fim do vetor
+*/
+void append(floatVector *vec, float val)
+{
+    //O size já indica o indice do vetor que está disponível
+    if (vec -> size == vec -> capacity)
+    {
+        fprintf(stderr, "ERROR in 'append'\n"); //stderr -> significa que está saindo em uma saída padrão de texto
+        fprintf(stderr, "Vector is full\n");
+        exit(EXIT_FAILURE); //Aqui, você está falando que está saindo do programa uma falha
+    }
+
+    vec -> data[vec -> size] = val;
+    vec -> size++;
+}
+
+/*
+*Função para printar o vetor
+*/
+void print (const floatVector *vec)
+{
+    puts("------------------");
+    printf("size: %d\n", vec -> size);
+    printf("Capacity: %d\n", vec -> capacity);
+    puts("---");
+
+    for (int i = 0; i < vec -> size; i++)
+    {
+        printf("[%d} = %f\n", i, vec -> data[i]);
+    }
+    puts("-------------------\n");
 }

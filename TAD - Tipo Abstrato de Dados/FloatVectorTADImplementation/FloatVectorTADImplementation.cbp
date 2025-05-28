@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="float_vector2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="float_vector2.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
