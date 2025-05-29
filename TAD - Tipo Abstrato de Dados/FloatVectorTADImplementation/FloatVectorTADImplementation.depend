@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1748394762 source:c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\tad - tipo abstrato de dados\floatvectortadimplementation\float_vector2.c
+1748559463 source:c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\tad - tipo abstrato de dados\floatvectortadimplementation\float_vector2.c
 	"float_vector2.h"
 	<stdlib.h>
 	<stdio.h>
+	<stdbool.h>
 
-1748394754 c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\tad - tipo abstrato de dados\floatvectortadimplementation\float_vector2.h
+1748559279 c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\tad - tipo abstrato de dados\floatvectortadimplementation\float_vector2.h
 
-1748394904 source:c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\tad - tipo abstrato de dados\floatvectortadimplementation\main.c
+1748559463 source:c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\tad - tipo abstrato de dados\floatvectortadimplementation\main.c
 	"float_vector2.h"
 	<stdio.h>
 

@@ -1,6 +1,6 @@
 /*Implementação TAD - Milena Cauana
 
-    ARQUIVO DE ESPECIFICAÇÃO!
+    ARQUIVO DE ESPECIFICAÇÃO! --> Interface pública
 
     Exercicio:
     Crie um TAD de um vetor de float:
@@ -25,14 +25,14 @@ typedef struct float_vector floatVector; //Aqui ele diz: "Existe uma estrutura c
 //Agora, temos de colocar as definições das funções
 
     //Essas duas funções que virão, servem para criação e desalocação
-    floatVector *create(int capacity);
-    void destroy(floatVector **vec_ref);
+    floatVector *floatVector_create(int capacity);
+    void floatVector_destroy(floatVector **vec_ref);
 
     //Funções já definidas pelo exercício
-    int size(const floatVector *vec);
-    capacity(const floatVector *vec);
-    at(const floatVector *vec, int index);
-    get(const floatVector *vec, int index);
-    void append(floatVector *vec, float val);
-    set(const floatVector *vec, int index, float val);
-    void print (const floatVector *vec);
+    int floatVector_size(const floatVector *vec);
+    int floatVector_capacity(const floatVector *vec);
+    float floatVector_at(const floatVector *vec, int index);
+    float floatVector_get(const floatVector *vec, int index);
+    void floatVector_append(floatVector *vec, float val);
+    void floatVector_set(const floatVector *vec, int index, float val);
+    void floatVector_print (const floatVector *vec);

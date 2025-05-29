@@ -6,26 +6,26 @@
 
 int main ()
 {
-    floatVector *vec = create(10);
-    print(vec);
+    floatVector *vec = floatVector_create(10);
+    floatVector_print(vec);
 
-    append(vec, 0.1);
-    append(vec, 0.2);
-    print(vec);
+    floatVector_append(vec, 0.1);
+    floatVector_append(vec, 0.2);
+    floatVector_print(vec);
 
-    append(vec, 0.3);
-    append(vec, 0.4);
-    append(vec, 0.5);
-    append(vec, 0.6);
-    append(vec, 0.7);
-    append(vec, 0.8);
-    append(vec, 0.9);
-    append(vec, 0.10);
-    print(vec);
+    floatVector_append(vec, 0.3);
+    floatVector_append(vec, 0.4);
+    floatVector_append(vec, 0.5);
+    floatVector_append(vec, 0.6);
+    floatVector_append(vec, 0.7);
+    floatVector_append(vec, 0.8);
+    floatVector_append(vec, 0.9);
+    floatVector_append(vec, 0.10);
+    floatVector_print(vec);
 
-    append(vec, 0.11);
+    floatVector_append(vec, 0.11);
 
-    destroy(&vec);
+    floatVector_destroy(&vec);
 
 return 0;
 }

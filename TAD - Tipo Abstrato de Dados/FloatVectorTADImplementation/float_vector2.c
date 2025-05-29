@@ -6,7 +6,6 @@
     Crie um TAD de um vetor de float:
         * O vetor tem uma capacidade máxima (número máximo de elementos);
         * O vetor informa seu tamanho(quantidade de elementos armazenados atualmente);
-
     Funções:
         * size(tad vector); //Retorna o tamanho do vetor (numero atual de elementos inderidos)
         * capacity(tad vector); //Retorna a capacidade do vetor (numero máximo de elementos)
@@ -16,10 +15,11 @@
         * set(tad vector, int index, float val); //Atribui o valor 'val' no indice 'index' do vetor de tipo 'tad'. Lança um erro se o índice for inválido
         * print (tad vector); //Imprime todos os elementos do vetor. */
 
-//Primeira coisa que devemos fazer é incluir o .h que contém as especificações
+//Primeira coisa que devemos fazer é incluir o .h que contém as especificações e ao passo queeu precisar de bibliotecas, ir adicionando-as
 #include "float_vector2.h"
 #include <stdlib.h>
 #include<stdio.h>
+#include<stdbool.h>
 
 struct float_vector
 {
@@ -34,7 +34,7 @@ struct float_vector
 *@param capacity Capacidade do vetor
 *@return floatcVector* um vetor de floats alocado/criado
 */
-floatVector *create(int capacity)
+floatVector *floatVector_create(int capacity)
 {
     floatVector *vec = (floatVector*) calloc(1, sizeof(floatVector)); //Diferença entre malloc e calloc -> malloc: aloca memória mas não inicializa (o conteúdo pode ser "lixo de memória") calloc: Aloca memória e inicializa todos os seus bytes com o valor zero;
     vec -> size = 0;
@@ -47,7 +47,7 @@ floatVector *create(int capacity)
 /*
 *Destruindo a função, desalocando;
 */
-void destroy(floatVector **vec_ref) //Perceba que, a assinatura do header não precisa exatamente ter os mesmos nomes dos parâmetros, o que importa mesmo é a assinatura dos tipos, mas, como boa pratica de programação, busca-se colocar os mesmos nomes
+void floatVector_destroy(floatVector **vec_ref) //Perceba que, a assinatura do header não precisa exatamente ter os mesmos nomes dos parâmetros, o que importa mesmo é a assinatura dos tipos, mas, como boa pratica de programação, busca-se colocar os mesmos nomes
 {
     floatVector *vec = *vec_ref;
 
@@ -58,12 +58,20 @@ void destroy(floatVector **vec_ref) //Perceba que, a assinatura do header não pr
 }
 
 /*
+*-------FUNÇÃO PRIVADA: para ver se o vetor está cheio
+*/
+bool _floatVector_isFull(const floatVector *vec)
+{
+    return vec -> size == vec -> capacity; //Se o tamanho for igual a capacidade, ele retornara true
+}
+
+/*
 *Função para adicionar um elemento no fim do vetor
 */
-void append(floatVector *vec, float val)
+void floatVector_append(floatVector *vec, float val)
 {
     //O size já indica o indice do vetor que está disponível
-    if (vec -> size == vec -> capacity)
+    if (_floatVector_isFull(vec))
     {
         fprintf(stderr, "ERROR in 'append'\n"); //stderr -> significa que está saindo em uma saída padrão de texto
         fprintf(stderr, "Vector is full\n");
@@ -77,7 +85,7 @@ void append(floatVector *vec, float val)
 /*
 *Função para printar o vetor
 */
-void print (const floatVector *vec)
+void floatVector_print (const floatVector *vec)
 {
     puts("------------------");
     printf("size: %d\n", vec -> size);
@@ -90,3 +98,59 @@ void print (const floatVector *vec)
     }
     puts("-------------------\n");
 }
+
+/*
+*Função que retorna o tamanho atual do vetor
+*/
+int floatVector_size(const floatVector *vec)
+{
+    return vec -> size;
+}
+
+
+/*
+*Função que retorna a capacidade do vetor
+*/
+int floatVector_capacity(const floatVector *vec)
+{
+    return vec -> capacity;
+}
+
+/*Função que retorna o elemento do índice "index" com bound-checked
+* BOUNF-CHECKED -> Ele irá checar se o índice que você mandou é válido
+*/
+float floatVector_at(const floatVector *vec, int index)
+{
+    if (index < 0 || index >= vec -> capacity)
+    {
+        fprintf(stderr, "ERROR in 'at'\n");
+        fprintf(stderr, "Index [%d] is out of bounds: [0, %d]\n", index, vec -> capacity - 1);
+        exit(EXIT_FAILURE);
+    }
+
+    return vec ->data[index];
+}
+
+/*
+*Função que retorna o elemento do índice
+*/
+float floatVector_get(const floatVector *vec, int index)
+{
+    return vec ->data[index];
+}
+
+/*
+*Função que adiciona um valor em um indice se o indice foir válido
+*/
+void floatVector_set(const floatVector *vec, int index, float val)
+{
+    if (index < 0 || index >= vec -> capacity)
+    {
+        fprintf(stderr, "ERROR in 'set'\n");
+        fprintf(stderr, "Index [%d] is out of bounds: [0, %d]\n", index, vec -> capacity - 1);
+        exit(EXIT_FAILURE);
+    }
+
+    vec -> data[index] = val;
+}
+
