@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1748880256 source:c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\tabela hash\implementando_tabela_has\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1748880130 source:c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\tabela hash\implementando_tabela_has\tabela_hash.c
+	<stdlib.h>
+	<string.h>
+	"Tabela_Hash.h"
+
+1748873412 c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\tabela hash\implementando_tabela_has\tabela_hash.h
+

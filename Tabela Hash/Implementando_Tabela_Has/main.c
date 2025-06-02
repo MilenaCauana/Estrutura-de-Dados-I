@@ -3,6 +3,8 @@
 
 int main()
 {
-    printf("Hello world!\n");
-    return 0;
+    /*Esse projeto só foi criado para entender as funções e fazer certas anotações.
+    A implementação e algo mais factível estará no trabalho de Simulador de Emergências*/
+
+return 0;
 }
