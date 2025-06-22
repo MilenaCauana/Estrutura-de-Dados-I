@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1750622886 source:c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\Árvore binária\implementando Árvore binária\main.c
+	<stdio.h>
+	"Implementando_ArvBin.h"
+
+1750622867 c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\Árvore binária\implementando Árvore binária\implementando_arvbin.h
+
+1750622891 source:c:\users\milena\documents\aprendendo-github\estrutura-de-dados-i\Árvore binária\implementando Árvore binária\implementando_arvbin.c
+	<stdio.h>
+	<stdlib.h>
+	"Implementando_ArvBin.h"
+
